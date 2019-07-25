@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070C398522E9D4B7007EDB39 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070C398422E9D4B7007EDB39 /* AuthService.swift */; };
 		384616B522E0906900406365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384616B422E0906900406365 /* AppDelegate.swift */; };
 		384616B722E0906900406365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384616B622E0906900406365 /* ViewController.swift */; };
 		384616BA22E0906900406365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384616B822E0906900406365 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070C398422E9D4B7007EDB39 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ACB5F6A8783B18981B2DCF /* Pods-SmackPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackPractice.release.xcconfig"; path = "Target Support Files/Pods-SmackPractice/Pods-SmackPractice.release.xcconfig"; sourceTree = "<group>"; };
 		384616B122E0906900406365 /* SmackPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070C398322E9D4A0007EDB39 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				070C398422E9D4B7007EDB39 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		35629F489B7E85855F96593B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				384616B422E0906900406365 /* AppDelegate.swift */,
+				070C398322E9D4A0007EDB39 /* Services */,
 				384616B822E0906900406365 /* Main.storyboard */,
 				38ED2BEF22E2E4A600520F41 /* Constants.swift */,
 				384616BB22E0906B00406365 /* Assets.xcassets */,
@@ -268,6 +279,7 @@
 				384616B522E0906900406365 /* AppDelegate.swift in Sources */,
 				38ED2BF422E2EFDB00520F41 /* CreateAccountVC.swift in Sources */,
 				38ED2BF022E2E4A600520F41 /* Constants.swift in Sources */,
+				070C398522E9D4B7007EDB39 /* AuthService.swift in Sources */,
 				384616D122E0E59900406365 /* ChannelVC.swift in Sources */,
 				384616D422E1B7CC00406365 /* SWRevealViewController.m in Sources */,
 			);

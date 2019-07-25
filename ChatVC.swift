@@ -19,4 +19,6 @@ class ChatVC: UIViewController {
         view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
+    
+
 }

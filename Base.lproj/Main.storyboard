@@ -420,7 +420,7 @@
                         <viewLayoutGuide key="safeArea" id="aIV-4t-1nW"/>
                     </view>
                     <connections>
-                        <segue destination="smh-Fs-l4j" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="w0N-j2-cQF"/>
+                        <segue destination="smh-Fs-l4j" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="hWl-k2-sug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qp-WW-o1U" userLabel="First Responder" sceneMemberID="firstResponder"/>

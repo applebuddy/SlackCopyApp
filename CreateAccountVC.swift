@@ -16,7 +16,6 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: UNWIND, sender: nil)
+        performSegue(withIdentifier: UNWIND_TO_CHANNEL, sender: nil)
     }
-    
 }
