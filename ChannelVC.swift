@@ -9,23 +9,19 @@
 import UIKit
 
 class ChannelVC: UIViewController {
-    
-    @IBOutlet weak var loginButton: UIButton!
-    
+    @IBOutlet var loginButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         revealViewController()?.rearViewRevealWidth = view.frame.width - 60
     }
-    
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
+
+    @IBAction func loginButtonPressed(_: UIButton) {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }
 
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
         print("UNWIND")
     }
-    
 }

@@ -9,20 +9,17 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func closeButtonPressed(_ sender: UIButton) {
+
+    @IBAction func closeButtonPressed(_: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+
+    @IBAction func createAccountButtonPressed(_: UIButton) {
         performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
-        
     }
-    
 }

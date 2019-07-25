@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias CompletionHandler = (_ Success: Bool) -> ()
+typealias CompletionHandler = (_ Success: Bool) -> Void
 
 // URL Constants
 let BASE_URL = "https://slackcopyapp2.herokuapp.com/v1/"
