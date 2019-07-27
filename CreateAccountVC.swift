@@ -7,31 +7,32 @@
 //
 
 import UIKit
+import Alamofire
 
 class CreateAccountVC: UIViewController {
     @IBOutlet weak var userNameTxt: UITextField!
-    @IBOutlet weak var emailTxt: UITextField!
-    @IBOutlet weak var passwordTxt: UITextField!
-    @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func closeButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: UNWIND_TO_CHANNEL, sender: nil)
-    }
-    
     @IBAction func createAccountPressed(_ sender: UIButton) {
-        guard let email = emailTxt.text, emailTxt.text != "" else { return }
-        guard let pass = passwordTxt.text, passwordTxt.text != "" else { return }
+        guard let email = emailTextField.text, emailTextField.text != "" else { return }
+        guard let password = passwordTextField.text, passwordTextField.text != "" else { return }
         
-        AuthService.instance.registerUser(email: email, password: pass, completion: {(success) in
+        
+        AuthService.instance.registerUser(email: email, password: password) {(success) in
             if success {
-                print("registered user!")
+                AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
+                    if success {
+                        print("logged in user!", AuthService.instance.authToken)
+                    }
+                })
             }
-            
-            })
+        }
     }
     
     @IBAction func pickAvatarPressed(_ sender: UIButton) {
@@ -42,4 +43,7 @@ class CreateAccountVC: UIViewController {
         
     }
     
+    @IBAction func closeButtonPressed(_: UIButton) {
+        performSegue(withIdentifier: UNWIND_TO_CHANNEL, sender: nil)
+    }
 }

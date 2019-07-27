@@ -425,9 +425,9 @@
                         <viewLayoutGuide key="safeArea" id="aIV-4t-1nW"/>
                     </view>
                     <connections>
-                        <outlet property="emailTxt" destination="4aM-BC-mlC" id="4PL-2M-dLl"/>
-                        <outlet property="passwordTxt" destination="g3G-X2-WsG" id="poc-bZ-N7g"/>
-                        <outlet property="userImg" destination="5gY-kb-m5y" id="Pra-U8-iFR"/>
+                        <outlet property="emailTextField" destination="4aM-BC-mlC" id="4PL-2M-dLl"/>
+                        <outlet property="passwordTextField" destination="g3G-X2-WsG" id="poc-bZ-N7g"/>
+                        <outlet property="userImageView" destination="5gY-kb-m5y" id="Pra-U8-iFR"/>
                         <outlet property="userNameTxt" destination="P7j-uD-QVj" id="bWi-FZ-IUx"/>
                         <segue destination="smh-Fs-l4j" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="hWl-k2-sug"/>
                     </connections>
