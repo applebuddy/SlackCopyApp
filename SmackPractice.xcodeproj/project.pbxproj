@@ -11,6 +11,7 @@
 		070DE40C22EC380300AF4E8E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070DE40B22EC380200AF4E8E /* UserDataService.swift */; };
 		07EB1C6522F0630A0079A18F /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EB1C6422F0630A0079A18F /* AvatarPickerVC.swift */; };
 		07EB1C6722F064BC0079A18F /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */; };
+		07EB1C6922F07E340079A18F /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EB1C6822F07E340079A18F /* CircleImageView.swift */; };
 		384616B522E0906900406365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384616B422E0906900406365 /* AppDelegate.swift */; };
 		384616B722E0906900406365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384616B622E0906900406365 /* ViewController.swift */; };
 		384616BA22E0906900406365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384616B822E0906900406365 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EB1C6422F0630A0079A18F /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		07EB1C6822F07E340079A18F /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		33ACB5F6A8783B18981B2DCF /* Pods-SmackPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackPractice.release.xcconfig"; path = "Target Support Files/Pods-SmackPractice/Pods-SmackPractice.release.xcconfig"; sourceTree = "<group>"; };
 		384616B122E0906900406365 /* SmackPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		384616B422E0906900406365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				38CEBD7E22E2C99E00C234FA /* GradientView.swift */,
 				07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */,
+				07EB1C6822F07E340079A18F /* CircleImageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				384616CF22E0E47700406365 /* ChatVC.swift in Sources */,
 				07EB1C6522F0630A0079A18F /* AvatarPickerVC.swift in Sources */,
+				07EB1C6922F07E340079A18F /* CircleImageView.swift in Sources */,
 				384616B722E0906900406365 /* ViewController.swift in Sources */,
 				38ED2BF222E2EC6500520F41 /* LoginVC.swift in Sources */,
 				07EB1C6722F064BC0079A18F /* AvatarCollectionViewCell.swift in Sources */,
