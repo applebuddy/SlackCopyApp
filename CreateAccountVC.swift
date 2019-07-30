@@ -16,11 +16,19 @@ class CreateAccountVC: UIViewController {
     @IBOutlet var userImageView: UIImageView!
 
     // Variables
-    var avatarName = "profileDefault" //
+    var avatarName = "profileDefault" // 디폴트 아바타 이름
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
+        if UserDataService.instance.avatarName != "" {
+            userImageView.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
     }
 
     @IBAction func createAccountPressed(_: UIButton) {
