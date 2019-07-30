@@ -59,37 +59,36 @@ final class AuthService {
             }
         })
     }
-    
+
     func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
         let lowerCaseEmail = email.lowercased()
-        
+
         let body: [String: Any] = [
             "email": lowerCaseEmail,
             "password": password,
         ]
-        
+
         // POST 요청 후 정 공 시 데이터 처리를 한다.
-        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { response in
+
             if response.result.error == nil {
 //                if let json = response.result.value as? Dictionary<String, Any> {
-                    // TIP) "as? String" : as가 메모리 역할로 보고, 타입 캐스팅이 되는지 확인하는 모양새
+                // TIP) "as? String" : as가 메모리 역할로 보고, 타입 캐스팅이 되는지 확인하는 모양새
 //                    if let email = json["user"] as? String {
 //                        self.userEmail = email
 //                    }
 //                    if let token = json["token"] as? String {
 //                        self.authToken = token
 //                    }
-                    
-                    // Using SwiftyJSON
+
+                // Using SwiftyJSON
                 guard let data = response.data, let json = try? JSON(data: data) else {
                     completion(false)
                     return
-                    
                 }
-                    self.userEmail = json["user"].stringValue
-                    self.authToken = json["token"].stringValue
-                    self.isLoggedIn = true
+                self.userEmail = json["user"].stringValue
+                self.authToken = json["token"].stringValue
+                self.isLoggedIn = true
                 completion(true)
             } else {
                 completion(false)
@@ -97,28 +96,29 @@ final class AuthService {
             }
         }
     }
-    
-    // MARK:- CREATE USER METHOD
+
+    // MARK: - CREATE USER METHOD
+
     func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
         let lowerCaseEmail = email.lowercased()
-        
+
         // BODY
         let body: [String: Any] = [
             "name": name,
             "email": lowerCaseEmail,
             "avatarName": avatarName,
-            "avatarColor": avatarColor
+            "avatarColor": avatarColor,
         ]
-        
+
         // HEADER
         let header = [
             "Authorization": "Bearer \(AuthService.instance.authToken)",
-            "Content-Type": "application/json; charset=utf-8"
+            "Content-Type": "application/json; charset=utf-8",
         ]
-        
+
         // REQUEST CREATE USER
-        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+
             if response.result.error == nil {
                 guard let data = response.data, let json = try? JSON(data: data) else { return }
                 let id = json["_id"].stringValue
