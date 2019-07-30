@@ -381,7 +381,7 @@
                                 <color key="textColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-kb-m5y">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-kb-m5y" customClass="CircleImageView" customModule="SmackPractice" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="302.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1hg-6s-91t"/>
@@ -399,15 +399,21 @@
                                     <action selector="pickBGColorPressed:" destination="tP0-OY-cSL" eventType="touchUpInside" id="qoh-0A-XBC"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u4z-2x-Lnj">
+                                <rect key="frame" x="169" y="235" width="37" height="37"/>
+                                <color key="color" red="0.83042270029999998" green="0.33267337328767121" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5gY-kb-m5y" firstAttribute="top" secondItem="DVr-qY-VUY" secondAttribute="bottom" constant="23" id="2WS-Ju-2SV"/>
                             <constraint firstItem="lTJ-NW-6mn" firstAttribute="centerX" secondItem="aIV-4t-1nW" secondAttribute="centerX" id="3by-9z-aTG"/>
+                            <constraint firstItem="u4z-2x-Lnj" firstAttribute="centerX" secondItem="Nay-ZF-fbB" secondAttribute="centerX" id="4Xh-KX-dPW"/>
                             <constraint firstItem="JFJ-nc-UDc" firstAttribute="centerX" secondItem="Nay-ZF-fbB" secondAttribute="centerX" id="7RE-DW-aDK"/>
                             <constraint firstItem="pVr-gs-NQB" firstAttribute="centerX" secondItem="JFJ-nc-UDc" secondAttribute="centerX" id="C1q-OA-1ZE"/>
                             <constraint firstItem="DVr-qY-VUY" firstAttribute="centerX" secondItem="z0O-pC-Iof" secondAttribute="centerX" id="Gch-Hs-fgV"/>
                             <constraint firstItem="aIV-4t-1nW" firstAttribute="trailing" secondItem="Ud2-yi-P0y" secondAttribute="trailing" constant="16" id="Ghg-pk-yr2"/>
+                            <constraint firstItem="u4z-2x-Lnj" firstAttribute="centerY" secondItem="Nay-ZF-fbB" secondAttribute="centerY" constant="-80" id="IW6-sg-hjp"/>
                             <constraint firstItem="pVr-gs-NQB" firstAttribute="top" secondItem="JFJ-nc-UDc" secondAttribute="bottom" constant="4" id="LIf-Jo-ce3"/>
                             <constraint firstItem="aIV-4t-1nW" firstAttribute="trailing" secondItem="lTJ-NW-6mn" secondAttribute="trailing" constant="50" id="R2V-wb-7a0"/>
                             <constraint firstItem="aIV-4t-1nW" firstAttribute="trailing" secondItem="z0O-pC-Iof" secondAttribute="trailing" constant="50" id="YTY-rP-Mrs"/>
@@ -427,6 +433,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="4aM-BC-mlC" id="4PL-2M-dLl"/>
                         <outlet property="passwordTextField" destination="g3G-X2-WsG" id="poc-bZ-N7g"/>
+                        <outlet property="spinner" destination="u4z-2x-Lnj" id="4m2-zc-PNj"/>
                         <outlet property="userImageView" destination="5gY-kb-m5y" id="Pra-U8-iFR"/>
                         <outlet property="userNameTextField" destination="P7j-uD-QVj" id="bWi-FZ-IUx"/>
                         <segue destination="smh-Fs-l4j" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="hWl-k2-sug"/>
