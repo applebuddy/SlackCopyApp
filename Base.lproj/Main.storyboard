@@ -217,6 +217,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.91323358750000005" green="0.91323358750000005" blue="0.91323358750000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="9vL-Ij-Rhc" eventType="touchUpInside" id="Hdi-dB-bDc"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="TLy-sh-2eg">
                                 <rect key="frame" x="62.5" y="167" width="250" height="83"/>
@@ -262,6 +265,13 @@
                                     <segue destination="tP0-OY-cSL" kind="show" identifier="toCreateAccount" id="lqB-vj-nDp"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RQ6-bc-deR">
+                                <rect key="frame" x="172.5" y="318.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8og-VK-uPy"/>
+                                    <constraint firstAttribute="width" constant="30" id="vVi-Jn-Jhg"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -276,9 +286,16 @@
                             <constraint firstItem="cgZ-CK-9Zt" firstAttribute="centerX" secondItem="dH6-qU-91e" secondAttribute="centerX" id="mhN-Kr-j2a"/>
                             <constraint firstItem="F7W-OT-sUo" firstAttribute="trailing" secondItem="aFh-To-iBU" secondAttribute="trailing" constant="16" id="mkO-Ki-H4a"/>
                             <constraint firstItem="dH6-qU-91e" firstAttribute="width" secondItem="TLy-sh-2eg" secondAttribute="width" id="nKq-Dg-E58"/>
+                            <constraint firstItem="RQ6-bc-deR" firstAttribute="centerY" secondItem="ajn-9P-oxT" secondAttribute="centerY" id="rxp-6V-eyf"/>
+                            <constraint firstItem="RQ6-bc-deR" firstAttribute="centerX" secondItem="ajn-9P-oxT" secondAttribute="centerX" id="vXc-80-ZtN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F7W-OT-sUo"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="12c-MS-a7A" id="S9M-X4-yYf"/>
+                        <outlet property="spinner" destination="RQ6-bc-deR" id="qqw-7z-55g"/>
+                        <outlet property="usernameTextField" destination="Exh-WY-5Dn" id="MBc-r6-jRp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suo-c9-NYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

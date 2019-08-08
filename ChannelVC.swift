@@ -10,7 +10,8 @@ import UIKit
 
 class ChannelVC: UIViewController {
     @IBOutlet var loginButton: UIButton!
-
+    @IBOutlet weak var userImageView: CircleImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,10 +19,32 @@ class ChannelVC: UIViewController {
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        if AuthService.instance.isLoggedIn {
+            let profile = ProfileVC()
+            profile.modalPresentationStyle = .custom
+            present(profile, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        }
     }
 
     @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
         print("UNWIND")
+    }
+    
+    @objc func userDataDidChange(_ notif: Notification) {
+        setupUserInfo()
+    }
+    
+    func setupUserInfo() {
+        if AuthService.instance.isLoggedIn {
+            loginButton.setTitle(UserDataService.instance.name, for: .normal)
+            userImageView.image = UIImage(named: UserDataService.instance.avatarName)
+            userImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        } else {
+            loginButton.setTitle("Login", for: .normal)
+            userImageView.image = UIImage(named: "menuProfileIcon")
+            userImageView.backgroundColor = .clear
+        }
     }
 }

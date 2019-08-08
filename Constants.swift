@@ -28,6 +28,8 @@ let smackPurplePlaceholder = #colorLiteral(red: 0.5143675086, green: 0.379013270
 
 let NOTIFI_USER_DATA_DID_CHANGE = Notification.Name("notiUserDataChanged")
 
+
+
 // MARK: - Segues
 
 let TO_LOGIN = "toLogin"
@@ -40,7 +42,12 @@ let To_AVATAR_PICKER = "toAvatarPicker"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 
 // MARK: - Headers
 
 let HEADER = ["Content-Type": "application/json; charset=utf-8"]
+let BEARER_HEADER = [
+    "Authorization": "Bearer \(AuthService.instance.authToken)",
+    "Content-Type": "application/json; charset=urt-8"
+]
