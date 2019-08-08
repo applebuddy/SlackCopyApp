@@ -10,8 +10,8 @@ import UIKit
 
 class ChannelVC: UIViewController {
     @IBOutlet var loginButton: UIButton!
-    @IBOutlet weak var userImageView: CircleImageView!
-    
+    @IBOutlet var userImageView: CircleImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,11 +31,11 @@ class ChannelVC: UIViewController {
     @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
         print("UNWIND")
     }
-    
-    @objc func userDataDidChange(_ notif: Notification) {
+
+    @objc func userDataDidChange(_: Notification) {
         setupUserInfo()
     }
-    
+
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
