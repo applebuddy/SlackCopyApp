@@ -105,14 +105,14 @@
                                 <rect key="frame" x="281" y="82" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-Xd-7Fs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7Oj-Xd-7Fs" customClass="CircleImageView" customModule="SmackPractice" customModuleProvider="target">
                                 <rect key="frame" x="20" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="4oq-YG-vae"/>
                                     <constraint firstAttribute="width" constant="75" id="hsE-DA-s3r"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-uV-JbB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-uV-JbB">
                                 <rect key="frame" x="0.0" y="124" width="375" height="428"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -138,6 +138,10 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gfS-jl-MQU" id="rh8-Fb-vAl"/>
+                                    <outlet property="delegate" destination="gfS-jl-MQU" id="PIo-gh-tjr"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5M-uC-yPe">
                                 <rect key="frame" x="115" y="593" width="46" height="33"/>
@@ -170,7 +174,9 @@
                         <viewLayoutGuide key="safeArea" id="Nol-bU-l3q"/>
                     </view>
                     <connections>
+                        <outlet property="channelTableView" destination="UEa-uV-JbB" id="Mqd-8z-Pc3"/>
                         <outlet property="loginButton" destination="p5M-uC-yPe" id="q2y-u3-u8B"/>
+                        <outlet property="userImageView" destination="7Oj-Xd-7Fs" id="TS6-IF-Gcq"/>
                         <segue destination="9vL-Ij-Rhc" kind="show" identifier="toLogin" id="P5R-ey-0Qx"/>
                     </connections>
                 </viewController>

@@ -8,14 +8,19 @@
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var channelTableView: UITableView!
+
     @IBOutlet var loginButton: UIButton!
+
     @IBOutlet var userImageView: CircleImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         revealViewController()?.rearViewRevealWidth = view.frame.width - 60
+
+        channelTableView.delegate = self
+        channelTableView.dataSource = self
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {
@@ -46,5 +51,27 @@ class ChannelVC: UIViewController {
             userImageView.image = UIImage(named: "menuProfileIcon")
             userImageView.backgroundColor = .clear
         }
+    }
+
+    // MARK: - DataSource
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelTableViewCell else { return UITableViewCell() }
+
+        // 채널 데이터를 준비한다.
+        let channel = MessageService.instance.channels[indexPath.row]
+
+        // 셀에 채널 데이터를 적용한다.
+        cell.configureCell(channel: channel)
+
+        return cell
+    }
+
+    func numberOfSections(in _: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return MessageService.instance.channels.count
     }
 }

@@ -20,18 +20,23 @@ class MessageService {
 
             // 에러가 발생한다면??
             if response.result.error == nil {
-                guard let data = response.data else { return }
-                guard let json = try? JSON(data: data).array else { return }
+                do {
+                    guard let data = response.data,
+                        let json = try? JSON(data: data).array,
+                        let json_ = json else { return }
 
-                for item in json! {
-                    let name = item["name"].stringValue
-                    let channelDescription = item["description"].stringValue
-                    let id = item["_id"].stringValue
-                    let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
-                    self.channels.append(channel)
+                    for item in json_ {
+                        let name = item["name"].stringValue
+                        let channelDescription = item["description"].stringValue
+                        let id = item["_id"].stringValue
+                        let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
+                        self.channels.append(channel)
+                    }
+                    print(self.channels[0].channelTitle)
+                    completion(true)
+                } catch {
+                    print("JSON Decode Error!: \(error.localizedDescription)")
                 }
-                print(self.channels[0].channelTitle)
-                completion(true)
 
             } else {
                 completion(false)
