@@ -21,6 +21,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         channelTableView.delegate = self
         channelTableView.dataSource = self
+
+        SocketService.instance.getChannel { success in
+            if success {
+                self.channelTableView.reloadData()
+            }
+        }
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {

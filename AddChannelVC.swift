@@ -33,7 +33,19 @@ class AddChannelVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func createChannelButtonPressed(_: UIButton) {}
+    /// * createChannelButton 클릭 시 발생하는 이벤트, 채널생성 성공 시 해당 VC를 dismiss된다.
+    @IBAction func createChannelButtonPressed(_: UIButton) {
+        guard let channelName = nameTextField.text,
+            nameTextField.text != "" else { return }
+        guard let chanDesc = chanDescTextField.text,
+            chanDescTextField.text != "" else { return }
+        SocketService.instance.addChannel(channelName: channelName, channelDescription: chanDesc) { success in
+            if success {
+                // 성공 시 AddChannelViewController를 dismiss처리한다.
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 
     @objc func closeButtonTapped(_: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

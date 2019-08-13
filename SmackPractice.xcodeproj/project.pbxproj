@@ -11,6 +11,7 @@
 		070DE40C22EC380300AF4E8E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070DE40B22EC380200AF4E8E /* UserDataService.swift */; };
 		0717A1B62302DC930059A12B /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717A1B42302DC930059A12B /* AddChannelVC.swift */; };
 		0717A1B72302DC930059A12B /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717A1B52302DC930059A12B /* AddChannelVC.xib */; };
+		0717A1B92302E8A80059A12B /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717A1B82302E8A80059A12B /* SocketService.swift */; };
 		0724B5352302D2E400BE06BD /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */; };
 		07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62322FC3CCD00551268 /* ProfileVC.swift */; };
 		07A4D62822FC433600551268 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A4D62622FC433600551268 /* ProfileVC.xib */; };
@@ -39,6 +40,7 @@
 		070DE40B22EC380200AF4E8E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		0717A1B42302DC930059A12B /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
 		0717A1B52302DC930059A12B /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
+		0717A1B82302E8A80059A12B /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07A4D62322FC3CCD00551268 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		070C398322E9D4A0007EDB39 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0717A1B82302E8A80059A12B /* SocketService.swift */,
 				070C398422E9D4B7007EDB39 /* AuthService.swift */,
 				070DE40B22EC380200AF4E8E /* UserDataService.swift */,
 				07A4D62922FC567100551268 /* MessageService.swift */,
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0717A1B92302E8A80059A12B /* SocketService.swift in Sources */,
 				07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */,
 				384616CF22E0E47700406365 /* ChatVC.swift in Sources */,
 				07EB1C6522F0630A0079A18F /* AvatarPickerVC.swift in Sources */,

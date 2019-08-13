@@ -16,4 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+
+    func applicationDidBecomeActive(_: UIApplication) {
+        // 앱이 Active 상태가 될때 소켓연결
+        SocketService.instance.establishConnection()
+    }
+
+    func applicationWillTerminate(_: UIApplication) {
+        // 앱 종료 시 소켓 연결 종료
+        SocketService.instance.closeConnection()
+    }
 }

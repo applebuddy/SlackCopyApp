@@ -18,10 +18,10 @@ final class UserDataService {
     public private(set) var name = ""
 
     // 유저 데이터와 아바타 이름을 설정한다.
-    func setUserData(id: String, color: String, avatarName: String, email: String, name: String) {
+    func setUserData(id: String, avatarColor: String, avatarName: String, email: String, name: String) {
         self.id = id
         self.avatarName = avatarName
-        avatarColor = color
+        self.avatarColor = avatarColor
         self.email = email
         self.name = name
     }

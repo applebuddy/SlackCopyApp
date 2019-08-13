@@ -86,13 +86,15 @@ final class AuthService {
                     completion(false)
                     return
                 }
+
                 self.userEmail = json["user"].stringValue
                 self.authToken = json["token"].stringValue
+
                 self.isLoggedIn = true
                 completion(true)
             } else {
-                completion(false)
                 debugPrint(response.result.error as Any)
+                completion(false)
             }
         }
     }
@@ -126,7 +128,7 @@ final class AuthService {
                 let avatarName = json["avatarName"].stringValue
                 let email = json["email"].stringValue
                 let name = json["name"].stringValue
-                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+                UserDataService.instance.setUserData(id: id, avatarColor: color, avatarName: avatarName, email: email, name: name)
                 completion(true)
             } else {
                 completion(false)
@@ -160,9 +162,9 @@ final class AuthService {
             let email = json["email"].stringValue
             let name = json["name"].stringValue
 
-            UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+            UserDataService.instance.setUserData(id: id, avatarColor: color, avatarName: avatarName, email: email, name: name)
         } catch {
-            print("json data eroror")
+            print("json data error")
         }
     }
 }

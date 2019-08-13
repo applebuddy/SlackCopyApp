@@ -35,13 +35,13 @@ let NOTIFI_USER_DATA_DID_CHANGE = Notification.Name("notiUserDataChanged")
 let TO_LOGIN = "toLogin"
 let TO_CREATE_ACCOUNT = "toCreateAccount"
 let UNWIND_TO_CHANNEL = "unwindToChannel"
-let To_AVATAR_PICKER = "toAvatarPicker"
 
 // MARK: - User Defaults
 
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let TO_AVATAR_PICKER = "toAvatarPicker"
 
 // MARK: - Headers
 
