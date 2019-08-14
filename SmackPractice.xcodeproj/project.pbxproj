@@ -110,6 +110,7 @@
 				070C398322E9D4A0007EDB39 /* Services */,
 				384616B822E0906900406365 /* Main.storyboard */,
 				07A4D62622FC433600551268 /* ProfileVC.xib */,
+				0717A1B52302DC930059A12B /* AddChannelVC.xib */,
 				384616BB22E0906B00406365 /* Assets.xcassets */,
 				384616CD22E0E46400406365 /* Controller */,
 				384616CC22E0E45D00406365 /* View */,
@@ -179,7 +180,6 @@
 				07EB1C6422F0630A0079A18F /* AvatarPickerVC.swift */,
 				07A4D62322FC3CCD00551268 /* ProfileVC.swift */,
 				0717A1B42302DC930059A12B /* AddChannelVC.swift */,
-				0717A1B52302DC930059A12B /* AddChannelVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="564-3b-oS7">
-                                <rect key="frame" x="20" y="44" width="56" height="21"/>
+                                <rect key="frame" x="20" y="44" width="70" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.91323358750000005" green="0.91323358750000005" blue="0.91323358750000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -122,13 +122,16 @@
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" id="wkx-cM-6bq" customClass="ChannelTableViewCell" customModule="SmackPractice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wkx-cM-6bq" id="sf0-Lx-7Oj" customClass="ChannelTableViewCell" customModule="SmackPractice" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wkx-cM-6bq" id="sf0-Lx-7Oj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCi-u6-Imk">
-                                                    <rect key="frame" x="35" y="11.5" width="305" height="21"/>
+                                                    <rect key="frame" x="20" y="7" width="335" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="YHf-aE-x2c"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,15 +141,15 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="jCi-u6-Imk" firstAttribute="leading" secondItem="sf0-Lx-7Oj" secondAttribute="leadingMargin" constant="20" id="Lws-Jp-qm8"/>
-                                                <constraint firstItem="jCi-u6-Imk" firstAttribute="centerY" secondItem="sf0-Lx-7Oj" secondAttribute="centerY" id="iH1-MN-WMv"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="jCi-u6-Imk" secondAttribute="trailing" constant="20" id="tAy-ke-GXk"/>
+                                                <constraint firstItem="jCi-u6-Imk" firstAttribute="centerY" secondItem="sf0-Lx-7Oj" secondAttribute="centerY" id="BND-9q-Iew"/>
+                                                <constraint firstAttribute="trailing" secondItem="jCi-u6-Imk" secondAttribute="trailing" constant="20" id="bpr-hO-pc9"/>
+                                                <constraint firstItem="jCi-u6-Imk" firstAttribute="leading" secondItem="sf0-Lx-7Oj" secondAttribute="leading" constant="20" id="sgm-Vg-aQl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="channelNameLabel" destination="jCi-u6-Imk" id="WJ2-7L-EQl"/>
+                                            <outlet property="channelNameLabel" destination="jCi-u6-Imk" id="cT0-dt-zci"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -155,8 +158,12 @@
                                     <outlet property="delegate" destination="gfS-jl-MQU" id="PIo-gh-tjr"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5M-uC-yPe">
-                                <rect key="frame" x="115" y="593" width="46" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5M-uC-yPe">
+                                <rect key="frame" x="115" y="584.5" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="BxP-b0-bmO"/>
+                                    <constraint firstAttribute="height" constant="50" id="hJO-GY-rfW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.91323358750000005" green="0.91323358750000005" blue="0.91323358750000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -170,6 +177,7 @@
                         <constraints>
                             <constraint firstItem="QYF-ta-e9c" firstAttribute="top" secondItem="564-3b-oS7" secondAttribute="bottom" constant="20" id="3Df-u8-dOE"/>
                             <constraint firstItem="p5M-uC-yPe" firstAttribute="centerY" secondItem="7Oj-Xd-7Fs" secondAttribute="centerY" id="BYr-XY-IQB"/>
+                            <constraint firstItem="564-3b-oS7" firstAttribute="trailing" secondItem="QYF-ta-e9c" secondAttribute="trailing" id="DbA-mB-jW3"/>
                             <constraint firstItem="7Oj-Xd-7Fs" firstAttribute="leading" secondItem="QYF-ta-e9c" secondAttribute="leading" id="KCU-F0-TvM"/>
                             <constraint firstItem="564-3b-oS7" firstAttribute="top" secondItem="Nol-bU-l3q" secondAttribute="top" constant="24" id="LLw-16-pai"/>
                             <constraint firstItem="Nol-bU-l3q" firstAttribute="trailing" secondItem="UEa-uV-JbB" secondAttribute="trailing" id="QnS-tl-V4Y"/>
@@ -177,8 +185,10 @@
                             <constraint firstItem="564-3b-oS7" firstAttribute="leading" secondItem="Nol-bU-l3q" secondAttribute="leading" constant="20" id="XEL-eK-LDZ"/>
                             <constraint firstItem="UEa-uV-JbB" firstAttribute="top" secondItem="SzA-CM-ngP" secondAttribute="bottom" constant="20" id="YGE-bH-eS3"/>
                             <constraint firstItem="p5M-uC-yPe" firstAttribute="leading" secondItem="7Oj-Xd-7Fs" secondAttribute="trailing" constant="20" id="ZE6-GQ-efD"/>
+                            <constraint firstItem="564-3b-oS7" firstAttribute="width" secondItem="QYF-ta-e9c" secondAttribute="width" id="b6Y-1N-gwh"/>
                             <constraint firstItem="UEa-uV-JbB" firstAttribute="leading" secondItem="Nol-bU-l3q" secondAttribute="leading" id="hmy-Bc-Xjh"/>
                             <constraint firstItem="QYF-ta-e9c" firstAttribute="leading" secondItem="564-3b-oS7" secondAttribute="leading" id="keL-VB-Ykf"/>
+                            <constraint firstItem="Nol-bU-l3q" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p5M-uC-yPe" secondAttribute="trailing" constant="20" id="lYS-Cq-JQt"/>
                             <constraint firstItem="SzA-CM-ngP" firstAttribute="centerY" secondItem="QYF-ta-e9c" secondAttribute="centerY" id="pjs-hf-KUY"/>
                             <constraint firstItem="7Oj-Xd-7Fs" firstAttribute="top" secondItem="UEa-uV-JbB" secondAttribute="bottom" constant="20" id="uGv-e2-lLg"/>
                             <constraint firstItem="Nol-bU-l3q" firstAttribute="trailing" secondItem="SzA-CM-ngP" secondAttribute="trailing" constant="72" id="zvT-Qp-Fdv"/>

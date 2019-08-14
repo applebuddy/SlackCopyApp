@@ -19,11 +19,11 @@ class ChannelTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-//        if selected {
-//            layer.backgroundColor = UIColor(white: 1, alpha: 0.2).cgColor
-//        } else {
-//            layer.backgroundColor = UIColor.clear.cgColor
-//        }
+        if selected {
+            layer.backgroundColor = UIColor(white: 1, alpha: 0.2).cgColor
+        } else {
+            layer.backgroundColor = UIColor.clear.cgColor
+        }
     }
 
     // 셀 설정 메서드
