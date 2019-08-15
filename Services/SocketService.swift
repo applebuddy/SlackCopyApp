@@ -9,6 +9,7 @@
 import SocketIO
 import UIKit
 
+/// * 소켓 서비스 싱글턴 클래스
 class SocketService: NSObject {
     static let instance = SocketService()
 

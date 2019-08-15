@@ -8,10 +8,15 @@
 
 import UIKit
 
+/// * 로그인 창 뷰 컨트롤러
 class LoginVC: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var spinner: UIActivityIndicatorView!
+
+    // MARK: - Property
 
     var isCreate: Bool {
         get {
@@ -29,13 +34,26 @@ class LoginVC: UIViewController {
         }
     }
 
+    // MARK: Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func loginPressed(_: Any) {
+    // MARK: - Set Method
+
+    func setupView() {
+        isCreate = false
+
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+    }
+
+    // MARK: - IBAction
+
+    @IBAction func loginPressed(_: UIButton) {
         isCreate = true
 
         guard let email = usernameTextField.text, email != "" else {
@@ -56,13 +74,6 @@ class LoginVC: UIViewController {
                 })
             }
         }
-    }
-
-    func setupView() {
-        isCreate = false
-
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
     }
 
     @IBAction func closeButtonPressed(_: UIButton) {

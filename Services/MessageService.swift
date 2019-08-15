@@ -15,6 +15,7 @@ class MessageService {
 
     var channels = [Channel]()
 
+    /// * 현재 유저의 채널 정보를 불러온다.
     func findAllChannel(completion: @escaping CompletionHandler) {
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { response in
 
@@ -22,9 +23,10 @@ class MessageService {
             if response.result.error == nil {
                 do {
                     guard let data = response.data,
-                        let json = try? JSON(data: data).array else { return }
+                        let json = try? JSON(data: data).array,
+                        let jsonArray = json else { return }
 
-                    for item in json! {
+                    for item in jsonArray {
                         let name = item["name"].stringValue
                         let channelDescription = item["description"].stringValue
                         let id = item["_id"].stringValue

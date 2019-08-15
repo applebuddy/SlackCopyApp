@@ -8,28 +8,23 @@
 
 import UIKit
 
+/// * 현재 로그인한 유저 정보 뷰 컨트롤러
 class ProfileVC: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var userEmail: UILabel!
     @IBOutlet var bgView: UIView!
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setupView()
     }
 
-    @IBAction func closeModalPressed(_: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func logoutPressed(_: Any) {
-        UserDataService.instance.logoutUser()
-        NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
-        dismiss(animated: true, completion: nil)
-    }
+    // MARK: - Set Method
 
     func setupView() {
         userName.text = UserDataService.instance.name
@@ -39,11 +34,25 @@ class ProfileVC: UIViewController {
             UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
 
         let closeTouch = UITapGestureRecognizer(target: self,
-                                                action: #selector(closeTap(_:)))
+                                                action: #selector(closeButtonTapped(_:)))
         bgView.addGestureRecognizer(closeTouch)
     }
 
-    @objc func closeTap(_: UITapGestureRecognizer) {
+    // MARK: - Action Method
+
+    @objc func closeButtonTapped(_: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: - IBAction
+
+    @IBAction func closeModalPressed(_: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func logoutPressed(_: Any) {
+        UserDataService.instance.logoutUser()
+        NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         dismiss(animated: true, completion: nil)
     }
 }

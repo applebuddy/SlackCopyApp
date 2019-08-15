@@ -11,6 +11,7 @@ import Foundation
 final class UserDataService {
     static let instance = UserDataService()
 
+    // public private(set) var : 읽기 전용 변수
     public private(set) var id = ""
     public private(set) var avatarColor = ""
     public private(set) var avatarName = ""
@@ -36,24 +37,24 @@ final class UserDataService {
         let comma = CharacterSet(charactersIn: ",")
         scanner.charactersToBeSkipped = skipped
 
-        var r, g, b, a: NSString?
+        var red, green, blue, alpha: NSString?
 
-        scanner.scanUpToCharacters(from: comma, into: &r)
-        scanner.scanUpToCharacters(from: comma, into: &g)
-        scanner.scanUpToCharacters(from: comma, into: &b)
-        scanner.scanUpToCharacters(from: comma, into: &a)
+        scanner.scanUpToCharacters(from: comma, into: &red)
+        scanner.scanUpToCharacters(from: comma, into: &green)
+        scanner.scanUpToCharacters(from: comma, into: &blue)
+        scanner.scanUpToCharacters(from: comma, into: &alpha)
 
         let defaultColor: UIColor = .lightGray
 
-        guard let rUnwrapped = r,
-            let gUnwrapped = g,
-            let bUnwrapped = b,
-            let aUnwrapped = a else { return defaultColor }
+        guard let rUnwrapped = red,
+            let gUnwrapped = green,
+            let bUnwrapped = blue,
+            let aUnwrapped = alpha else { return defaultColor }
 
         let rfloat = CGFloat(rUnwrapped.doubleValue)
-        let gfloat = CGFloat(rUnwrapped.doubleValue)
-        let bfloat = CGFloat(rUnwrapped.doubleValue)
-        let afloat = CGFloat(rUnwrapped.doubleValue)
+        let gfloat = CGFloat(gUnwrapped.doubleValue)
+        let bfloat = CGFloat(bUnwrapped.doubleValue)
+        let afloat = CGFloat(aUnwrapped.doubleValue)
 
         let newUIColor = UIColor(red: rfloat, green: gfloat, blue: bfloat, alpha: afloat)
 

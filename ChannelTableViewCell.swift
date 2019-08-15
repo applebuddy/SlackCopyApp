@@ -9,13 +9,18 @@
 import UIKit
 
 class ChannelTableViewCell: UITableViewCell {
+    // MARK: - IBOutlet
+
     @IBOutlet var channelNameLabel: UILabel!
+
+    // MARK: - Init
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         backgroundColor = .clear
     }
+
+    // MARK: - Set Method
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

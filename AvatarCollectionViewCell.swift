@@ -8,17 +8,27 @@
 
 import UIKit
 
+// MARK: - Avatar Image Type
+
 enum AvatarType {
     case dark
     case light
 }
 
+/// * Avatar 이미지 선택 셀
 class AvatarCollectionViewCell: UICollectionViewCell {
+    // MARK: - IBOutlet
+
     @IBOutlet var avatarImageView: UIImageView!
+
+    // MARK: - Init
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpView()
     }
+
+    // MARK: - Set Method
 
     func configureCell(index: Int, type: AvatarType) {
         if type == AvatarType.dark {

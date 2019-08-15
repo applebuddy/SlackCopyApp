@@ -9,12 +9,17 @@
 import Alamofire
 import UIKit
 
+/// * 회원가입 뷰 컨트롤러
 class CreateAccountVC: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+
+    // MARK: - Property
 
     var isSpinnerHidden: Bool {
         get {
@@ -31,10 +36,11 @@ class CreateAccountVC: UIViewController {
         }
     }
 
-    // Variables
     var avatarName = "profileDefault" // 디폴트 아바타 이름
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
     var bgColor: UIColor?
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,8 @@ class CreateAccountVC: UIViewController {
         }
     }
 
+    // MARK: - Set Method
+
     func setUpView() {
         spinner.isHidden = true
         userNameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
@@ -62,10 +70,15 @@ class CreateAccountVC: UIViewController {
         view.addGestureRecognizer(viewTapGesture)
     }
 
+    // MARK: - Action Method
+
     @objc func handleTapEvent() {
         view.endEditing(true)
     }
 
+    // MARK: - IBAction
+
+    /// * 계정 만들기 버튼 클릭 이벤트 메서드
     @IBAction func createAccountPressed(_: UIButton) {
         isSpinnerHidden = true
         guard let name = userNameTextField.text, userNameTextField.text != "" else { return }
@@ -97,11 +110,11 @@ class CreateAccountVC: UIViewController {
     }
 
     @IBAction func pickBGColorPressed(_: UIButton) {
-        let r = CGFloat(arc4random_uniform(255)) / 255
-        let g = CGFloat(arc4random_uniform(255)) / 255
-        let b = CGFloat(arc4random_uniform(255)) / 255
+        let red = CGFloat(arc4random_uniform(255)) / 255
+        let green = CGFloat(arc4random_uniform(255)) / 255
+        let blue = CGFloat(arc4random_uniform(255)) / 255
 
-        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        bgColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 
         UIView.animate(withDuration: 0.2) { // 아바타 배경색 변경 애니메이션
             self.userImageView.backgroundColor = self.bgColor

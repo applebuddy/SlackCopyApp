@@ -10,6 +10,7 @@ import Alamofire
 import Foundation
 import SwiftyJSON
 
+/// * Smack 앱 내 유저 인증 처리 싱글턴 클래스
 final class AuthService {
     static let instance = AuthService()
     let defaults = UserDefaults.standard

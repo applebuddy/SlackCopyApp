@@ -50,3 +50,7 @@ let BEARER_HEADER = [
     "Authorization": "Bearer \(AuthService.instance.authToken)",
     "Content-Type": "application/json; charset=urt-8",
 ]
+
+// MARK: - Cell Identifiers
+
+let avatarCollectionCell = "avatarCollectionViewCell"

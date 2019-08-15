@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/// * Smack 채널 뷰 컨트롤러
+class ChannelVC: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var channelTableView: UITableView!
 
     @IBOutlet var loginButton: UIButton!
 
     @IBOutlet var userImageView: CircleImageView!
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,28 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    // MARK: - Set Method
+
+    func setupUserInfo() {
+        if AuthService.instance.isLoggedIn {
+            loginButton.setTitle(UserDataService.instance.name, for: .normal)
+            userImageView.image = UIImage(named: UserDataService.instance.avatarName)
+            userImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        } else {
+            loginButton.setTitle("Login", for: .normal)
+            userImageView.image = UIImage(named: "menuProfileIcon")
+            userImageView.backgroundColor = .clear
+        }
+    }
+
+    // MARK: - Action Method
+
+    @objc func userDataDidChange(_: Notification) {
+        setupUserInfo()
+    }
+
+    // MARK: - IBAction
+
     @IBAction func loginButtonPressed(_: UIButton) {
         if AuthService.instance.isLoggedIn {
             let profile = ProfileVC()
@@ -43,24 +70,16 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print("UNWIND")
     }
 
-    @objc func userDataDidChange(_: Notification) {
-        setupUserInfo()
+    @IBAction func addChannelButtonPressed(_: UIButton) {
+        let addChannel = AddChannelVC()
+        addChannel.modalPresentationStyle = .custom
+        present(addChannel, animated: true, completion: nil)
     }
+}
 
-    func setupUserInfo() {
-        if AuthService.instance.isLoggedIn {
-            loginButton.setTitle(UserDataService.instance.name, for: .normal)
-            userImageView.image = UIImage(named: UserDataService.instance.avatarName)
-            userImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
-        } else {
-            loginButton.setTitle("Login", for: .normal)
-            userImageView.image = UIImage(named: "menuProfileIcon")
-            userImageView.backgroundColor = .clear
-        }
-    }
+extension ChannelVC: UITableViewDelegate {}
 
-    // MARK: - DataSource
-
+extension ChannelVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelTableViewCell else { return UITableViewCell() }
 
@@ -79,11 +98,5 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return MessageService.instance.channels.count
-    }
-
-    @IBAction func addChannelButtonPressed(_: UIButton) {
-        let addChannel = AddChannelVC()
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
     }
 }

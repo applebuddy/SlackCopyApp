@@ -9,11 +9,14 @@
 import UIKit
 
 @IBDesignable
+/// * Smack앱 그레디언트 배경뷰
 class GradientView: UIView {
+    // MARK: - Property
+
+    // IBInspectable : Interface Builder에서 커스텀 할 수 있는 옵션 추가
     @IBInspectable var topColor: UIColor = #colorLiteral(red: 0.287455678, green: 0.3025078475, blue: 0.8791555762, alpha: 1) {
         didSet {
             self.setNeedsLayout()
-//          self.setNeedsDisplay()
         }
     }
 
@@ -22,6 +25,8 @@ class GradientView: UIView {
             self.setNeedsLayout()
         }
     }
+
+    // MARK: - View Cycle Method
 
     override func layoutSubviews() {
         let gradientLayer = CAGradientLayer()

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// * 채널 추가 뷰 컨트롤러
 class AddChannelVC: UIViewController {
     // MARK: - Outlets
 
@@ -15,10 +16,14 @@ class AddChannelVC: UIViewController {
     @IBOutlet var chanDescTextField: UITextField!
     @IBOutlet var bgView: UIView!
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+
+    // MARK: - Set Method
 
     func setupView() {
         let closeTouch = UITapGestureRecognizer(target: self, action: #selector(closeButtonTapped(_:)))
@@ -28,6 +33,14 @@ class AddChannelVC: UIViewController {
 
         chanDescTextField.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
     }
+
+    // MARK: - Action Method
+
+    @objc func closeButtonTapped(_: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: - IBAction
 
     @IBAction func closeModelButtonPressed(_: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -45,9 +58,5 @@ class AddChannelVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
-    }
-
-    @objc func closeButtonTapped(_: UITapGestureRecognizer) {
-        dismiss(animated: true, completion: nil)
     }
 }
