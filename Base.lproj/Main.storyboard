@@ -74,6 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="Gfh-PB-j2g"/>
                     </view>
                     <connections>
+                        <outlet property="channelNameLabel" destination="Ba6-oQ-O2l" id="v7Y-2g-Qef"/>
                         <outlet property="menuButton" destination="VXB-eV-uia" id="uqH-dd-pg8"/>
                     </connections>
                 </viewController>
@@ -115,7 +116,7 @@
                                     <constraint firstAttribute="width" constant="75" id="hsE-DA-s3r"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-uV-JbB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-uV-JbB">
                                 <rect key="frame" x="0.0" y="124" width="375" height="428"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -154,8 +155,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="gfS-jl-MQU" id="rh8-Fb-vAl"/>
-                                    <outlet property="delegate" destination="gfS-jl-MQU" id="PIo-gh-tjr"/>
+                                    <outlet property="dataSource" destination="gfS-jl-MQU" id="IFY-I1-ryj"/>
+                                    <outlet property="delegate" destination="gfS-jl-MQU" id="nnP-Dd-YDS"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5M-uC-yPe">

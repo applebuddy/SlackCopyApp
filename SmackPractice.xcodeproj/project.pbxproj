@@ -13,6 +13,7 @@
 		0717A1B72302DC930059A12B /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717A1B52302DC930059A12B /* AddChannelVC.xib */; };
 		0717A1B92302E8A80059A12B /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717A1B82302E8A80059A12B /* SocketService.swift */; };
 		0724B5352302D2E400BE06BD /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */; };
+		076024BD230C20FB00E3E0F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076024BC230C20FB00E3E0F8 /* Message.swift */; };
 		07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62322FC3CCD00551268 /* ProfileVC.swift */; };
 		07A4D62822FC433600551268 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A4D62622FC433600551268 /* ProfileVC.xib */; };
 		07A4D62A22FC567100551268 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62922FC567100551268 /* MessageService.swift */; };
@@ -43,6 +44,7 @@
 		0717A1B82302E8A80059A12B /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		076024BC230C20FB00E3E0F8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		07A4D62322FC3CCD00551268 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		07A4D62622FC433600551268 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		07A4D62922FC567100551268 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
@@ -87,8 +89,8 @@
 			children = (
 				0717A1B82302E8A80059A12B /* SocketService.swift */,
 				070C398422E9D4B7007EDB39 /* AuthService.swift */,
-				070DE40B22EC380200AF4E8E /* UserDataService.swift */,
 				07A4D62922FC567100551268 /* MessageService.swift */,
+				070DE40B22EC380200AF4E8E /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -112,9 +114,9 @@
 				07A4D62622FC433600551268 /* ProfileVC.xib */,
 				0717A1B52302DC930059A12B /* AddChannelVC.xib */,
 				384616BB22E0906B00406365 /* Assets.xcassets */,
+				384616CB22E0E45400406365 /* Model */,
 				384616CD22E0E46400406365 /* Controller */,
 				384616CC22E0E45D00406365 /* View */,
-				384616CB22E0E45400406365 /* Model */,
 				384616C622E0A07D00406365 /* Supporting Files */,
 				384616B322E0906900406365 /* SmackPractice */,
 				384616B222E0906900406365 /* Products */,
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				07A4D62B22FC56AB00551268 /* Channel.swift */,
+				076024BC230C20FB00E3E0F8 /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				07EB1C6522F0630A0079A18F /* AvatarPickerVC.swift in Sources */,
 				07EB1C6922F07E340079A18F /* CircleImageView.swift in Sources */,
 				07A4D62C22FC56AB00551268 /* Channel.swift in Sources */,
+				076024BD230C20FB00E3E0F8 /* Message.swift in Sources */,
 				0724B5352302D2E400BE06BD /* ChannelTableViewCell.swift in Sources */,
 				384616B722E0906900406365 /* ViewController.swift in Sources */,
 				07A4D62A22FC567100551268 /* MessageService.swift in Sources */,

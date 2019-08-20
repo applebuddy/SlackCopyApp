@@ -16,6 +16,8 @@ class ChatVC: UIViewController {
 
     // MARK: - Life Cycle
 
+    @IBOutlet var channelNameLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +27,9 @@ class ChatVC: UIViewController {
         view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
 
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
+
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { _ in
                 NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
@@ -32,6 +37,47 @@ class ChatVC: UIViewController {
         }
 
         MessageService.instance.findAllChannel { _ in
+        }
+    }
+
+    func onLoginGetMessages() {
+        MessageService.instance.findAllChannel { success in
+            if success {
+                if MessageService.instance.channels.count > 0 {
+                    // 선택 된 채널은 1개 이상 존재 시 맨 첫번째 채널
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                } else {
+                    // 아직 생성한 채널이 없을때 라벨 표시 설정
+                    self.channelNameLabel.text = "No channels yet"
+                }
+            }
+        }
+    }
+
+    @objc func channelSelected(_: Notification) {
+        updateWithChannel()
+    }
+
+    func updateWithChannel() {
+        let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        channelNameLabel.text = "#\(channelName)"
+        getMessages()
+    }
+
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        MessageService.instance.findAllMessageForChannel(channelId: channelId) { _ in
+        }
+    }
+
+    // 유저 데이터가 변경될 시 호출 메서드
+    @objc func userDataDidChange(_: Notification) {
+        if AuthService.instance.isLoggedIn {
+            onLoginGetMessages()
+        } else {
+            // 유저 데이터가 없을 시 로그인 요청 문구 표시
+            channelNameLabel.text = "Please Log In"
         }
     }
 }

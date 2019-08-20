@@ -18,7 +18,7 @@ class LoginVC: UIViewController {
 
     // MARK: - Property
 
-    var isCreate: Bool {
+    var isLogging: Bool {
         get {
             return spinner.isHidden == false
         }
@@ -45,8 +45,6 @@ class LoginVC: UIViewController {
     // MARK: - Set Method
 
     func setupView() {
-        isCreate = false
-
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
     }
@@ -54,7 +52,7 @@ class LoginVC: UIViewController {
     // MARK: - IBAction
 
     @IBAction func loginPressed(_: UIButton) {
-        isCreate = true
+        isLogging = true
 
         guard let email = usernameTextField.text, email != "" else {
             return
@@ -67,7 +65,7 @@ class LoginVC: UIViewController {
                 AuthService.instance.findUserByEmail(completion: { success in
                     if success {
                         NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
-                        self.isCreate = false
+                        self.isLogging = false
                         self.dismiss(animated: true, completion: nil)
                     }
 
