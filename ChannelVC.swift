@@ -40,6 +40,7 @@ class ChannelVC: UIViewController {
     // 로그인 상태에 따라서 UI 상태를 설정한다.
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
+            loginButton.setTitle("Logout", for: .normal)
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             userImageView.image = UIImage(named: UserDataService.instance.avatarName)
             userImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
