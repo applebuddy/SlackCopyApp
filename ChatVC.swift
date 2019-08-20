@@ -14,6 +14,8 @@ class ChatVC: UIViewController {
 
     @IBOutlet var menuButton: UIButton!
 
+    @IBOutlet var messageTextField: UITextField!
+
     // MARK: - Life Cycle
 
     @IBOutlet var channelNameLabel: UILabel!
@@ -21,6 +23,9 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.bindToKeyboard()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        view.addGestureRecognizer(tap)
         menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
 
         // SWRevealViewController Event Recognizer
@@ -78,6 +83,24 @@ class ChatVC: UIViewController {
         } else {
             // 유저 데이터가 없을 시 로그인 요청 문구 표시
             channelNameLabel.text = "Please Log In"
+        }
+    }
+
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
+
+    @IBAction func messageButtonPressed(_: UIButton) {
+        if AuthService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = messageTextField.text else { return }
+
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId) { success in
+                if success {
+                    self.messageTextField.text = ""
+                    self.messageTextField.resignFirstResponder()
+                }
+            }
         }
     }
 }

@@ -14,6 +14,7 @@
 		0717A1B92302E8A80059A12B /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717A1B82302E8A80059A12B /* SocketService.swift */; };
 		0724B5352302D2E400BE06BD /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */; };
 		076024BD230C20FB00E3E0F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076024BC230C20FB00E3E0F8 /* Message.swift */; };
+		076024BF230C30D500E3E0F8 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */; };
 		07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62322FC3CCD00551268 /* ProfileVC.swift */; };
 		07A4D62822FC433600551268 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A4D62622FC433600551268 /* ProfileVC.xib */; };
 		07A4D62A22FC567100551268 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62922FC567100551268 /* MessageService.swift */; };
@@ -45,6 +46,7 @@
 		0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		076024BC230C20FB00E3E0F8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		07A4D62322FC3CCD00551268 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		07A4D62622FC433600551268 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		07A4D62922FC567100551268 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		384616CC22E0E45D00406365 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */,
 				38CEBD7E22E2C99E00C234FA /* GradientView.swift */,
 				07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */,
 				07EB1C6822F07E340079A18F /* CircleImageView.swift */,
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076024BF230C30D500E3E0F8 /* KeyboardBoundView.swift in Sources */,
 				0717A1B92302E8A80059A12B /* SocketService.swift in Sources */,
 				07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */,
 				384616CF22E0E47700406365 /* ChatVC.swift in Sources */,

@@ -31,6 +31,7 @@ class ChannelVC: UIViewController {
                 self.channelTableView.reloadData()
             }
         }
+        setupUserInfo()
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
     }
@@ -40,7 +41,6 @@ class ChannelVC: UIViewController {
     // 로그인 상태에 따라서 UI 상태를 설정한다.
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
-            loginButton.setTitle("Logout", for: .normal)
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             userImageView.image = UIImage(named: UserDataService.instance.avatarName)
             userImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
