@@ -26,7 +26,6 @@ class MessageService {
                 guard let data = response.data else { return }
                 do {
                     self.channels = try JSONDecoder().decode([Channel].self, from: data)
-
                     // 채널이 적용되었음을 노티로 알려준다.
                     NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
                     completion(true)
