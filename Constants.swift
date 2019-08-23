@@ -59,3 +59,4 @@ var BEARER_HEADER: [String: String] {
 // MARK: - Cell Identifiers
 
 let avatarCollectionCell = "avatarCollectionViewCell"
+let messageTableViewCell = "messageTableViewCell"

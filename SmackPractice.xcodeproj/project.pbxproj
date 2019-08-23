@@ -13,6 +13,7 @@
 		0717A1B72302DC930059A12B /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0717A1B52302DC930059A12B /* AddChannelVC.xib */; };
 		0717A1B92302E8A80059A12B /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717A1B82302E8A80059A12B /* SocketService.swift */; };
 		0724B5352302D2E400BE06BD /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */; };
+		07570CF22310014500562DC9 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07570CF12310014500562DC9 /* MessageTableViewCell.swift */; };
 		076024BD230C20FB00E3E0F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076024BC230C20FB00E3E0F8 /* Message.swift */; };
 		076024BF230C30D500E3E0F8 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */; };
 		07A4D62422FC3CCD00551268 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4D62322FC3CCD00551268 /* ProfileVC.swift */; };
@@ -45,6 +46,7 @@
 		0717A1B82302E8A80059A12B /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		073ED7F25B67E336F116E535 /* Pods_SmackPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07570CF12310014500562DC9 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		076024BC230C20FB00E3E0F8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		07A4D62322FC3CCD00551268 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */,
 				07EB1C6822F07E340079A18F /* CircleImageView.swift */,
 				0724B5342302D2E400BE06BD /* ChannelTableViewCell.swift */,
+				07570CF12310014500562DC9 /* MessageTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				0717A1B62302DC930059A12B /* AddChannelVC.swift in Sources */,
 				38ED2BF422E2EFDB00520F41 /* CreateAccountVC.swift in Sources */,
 				38ED2BF022E2E4A600520F41 /* Constants.swift in Sources */,
+				07570CF22310014500562DC9 /* MessageTableViewCell.swift in Sources */,
 				070C398522E9D4B7007EDB39 /* AuthService.swift in Sources */,
 				384616D122E0E59900406365 /* ChannelVC.swift in Sources */,
 				384616D422E1B7CC00406365 /* SWRevealViewController.m in Sources */,

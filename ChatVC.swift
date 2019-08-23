@@ -13,15 +13,17 @@ class ChatVC: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var menuButton: UIButton!
-
     @IBOutlet var messageTextField: UITextField!
+    @IBOutlet var channelNameLabel: UILabel!
+    @IBOutlet var chatTableView: UITableView!
 
     // MARK: - Life Cycle
 
-    @IBOutlet var channelNameLabel: UILabel!
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        chatTableView.delegate = self
+        chatTableView.dataSource = self
 
         view.bindToKeyboard()
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
@@ -72,7 +74,10 @@ class ChatVC: UIViewController {
 
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
-        MessageService.instance.findAllMessageForChannel(channelId: channelId) { _ in
+        MessageService.instance.findAllMessageForChannel(channelId: channelId) { success in
+            if success {
+                self.chatTableView.reloadData()
+            }
         }
     }
 
@@ -102,5 +107,30 @@ class ChatVC: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension ChatVC: UITableViewDelegate, UITableViewDataSource {
+    // MARK: - UITableViewDataSource
+
+    func numberOfSections(in _: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return MessageService.instance.messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: messageTableViewCell, for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
+        let message = MessageService.instance.messages[indexPath.row]
+        cell.configureCell(message: message)
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
