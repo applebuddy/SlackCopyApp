@@ -37,6 +37,12 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
 
+        SocketService.instance.getChatMessage { success in
+            if success {
+                self.chatTableView.reloadData()
+            }
+        }
+
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { _ in
                 NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
