@@ -1,5 +1,5 @@
 //
-//  ChannelVC.swift
+//  ChannelViewController.swift
 //  SmackPractice
 //
 //  Created by Min Kyeong Tae on 19/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// * Smack 채널 뷰 컨트롤러
-class ChannelVC: UIViewController {
+class ChannelViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var channelTableView: UITableView!
@@ -66,7 +66,7 @@ class ChannelVC: UIViewController {
 
     @IBAction func loginButtonPressed(_: UIButton) {
         if AuthService.instance.isLoggedIn {
-            let profile = ProfileVC()
+            let profile = ProfileViewController()
             profile.modalPresentationStyle = .custom
             present(profile, animated: true, completion: nil)
         } else {
@@ -77,7 +77,7 @@ class ChannelVC: UIViewController {
     @IBAction func addChannelButtonPressed(_: UIButton) {
         // 로그인이 되어있다면, 채널 추가 시도
         if AuthService.instance.isLoggedIn {
-            let addChannel = AddChannelVC()
+            let addChannel = AddChannelViewController()
             addChannel.modalPresentationStyle = .custom
             present(addChannel, animated: true, completion: nil)
         }
@@ -89,7 +89,7 @@ class ChannelVC: UIViewController {
     }
 }
 
-extension ChannelVC: UITableViewDelegate {
+extension ChannelViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 선택한 채널에 대한 데이터 처리한다.
         let channel = MessageService.instance.channels[indexPath.row]
@@ -104,7 +104,7 @@ extension ChannelVC: UITableViewDelegate {
     }
 }
 
-extension ChannelVC: UITableViewDataSource {
+extension ChannelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelTableViewCell else { return UITableViewCell() }
 

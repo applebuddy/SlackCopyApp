@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  LoginViewController.swift
 //  SmackPractice
 //
 //  Created by Min Kyeong Tae on 20/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// * 로그인 창 뷰 컨트롤러
-class LoginVC: UIViewController {
+class LoginViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var usernameTextField: UITextField!

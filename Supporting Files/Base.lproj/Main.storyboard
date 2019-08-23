@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="-155" y="-93"/>
         </scene>
-        <!--ChatVC-->
+        <!--Chat View Controller-->
         <scene sceneID="q2B-ES-C37">
             <objects>
-                <viewController id="Q19-DU-G54" customClass="ChatVC" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q19-DU-G54" customClass="ChatViewController" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lR9-03-ZmM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="725.60000000000002" y="201.94902548725639"/>
         </scene>
-        <!--ChannelVC-->
+        <!--Channel View Controller-->
         <scene sceneID="Vi3-b3-Gnv">
             <objects>
-                <viewController id="gfS-jl-MQU" customClass="ChannelVC" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gfS-jl-MQU" customClass="ChannelViewController" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nDV-2K-0Bt" customClass="GradientView" customModule="SmackPractice" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,7 +192,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzA-CM-ngP">
-                                <rect key="frame" x="281" y="82" width="22" height="22"/>
+                                <rect key="frame" x="287" y="82" width="16" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                                 <connections>
                                     <action selector="addChannelButtonPressed:" destination="gfS-jl-MQU" eventType="touchUpInside" id="QI0-e0-PL3"/>
@@ -296,22 +296,22 @@
             </objects>
             <point key="canvasLocation" x="709.60000000000002" y="-588.75562218890559"/>
         </scene>
-        <!--LoginVC-->
+        <!--Login View Controller-->
         <scene sceneID="mrH-Pp-6Wj">
             <objects>
-                <viewController id="9vL-Ij-Rhc" customClass="LoginVC" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9vL-Ij-Rhc" customClass="LoginViewController" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ajn-9P-oxT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kIy-6s-4Zy">
-                                <rect key="frame" x="127.5" y="91" width="120" height="40"/>
+                                <rect key="frame" x="143.5" y="85" width="88" height="20.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RqE-hq-nNe">
-                                        <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHP-qq-cBo">
-                                        <rect key="frame" x="64" y="10" width="56" height="20.5"/>
+                                        <rect key="frame" x="32" y="0.0" width="56" height="20.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -319,14 +319,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFh-To-iBU">
-                                <rect key="frame" x="331" y="40" width="28" height="28"/>
+                                <rect key="frame" x="343" y="40" width="16" height="22"/>
                                 <state key="normal" image="closeButton"/>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="9vL-Ij-Rhc" eventType="touchUpInside" id="N7m-5y-uxh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-qU-91e">
-                                <rect key="frame" x="62.5" y="280" width="250" height="50"/>
+                                <rect key="frame" x="62.5" y="254.5" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="et7-nH-hSy"/>
@@ -340,7 +340,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="TLy-sh-2eg">
-                                <rect key="frame" x="62.5" y="167" width="250" height="83"/>
+                                <rect key="frame" x="62.5" y="141.5" width="250" height="83"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Exh-WY-5Dn">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
@@ -373,7 +373,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-CK-9Zt">
-                                <rect key="frame" x="79.5" y="336" width="216" height="28"/>
+                                <rect key="frame" x="79.5" y="310.5" width="216" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="Don't have an account? Sign up here">
                                     <color key="titleColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -419,16 +419,16 @@
             </objects>
             <point key="canvasLocation" x="1581.5999999999999" y="-589.65517241379314"/>
         </scene>
-        <!--Create AccountVC-->
+        <!--Create Account View Controller-->
         <scene sceneID="eMw-t6-6nM">
             <objects>
-                <viewController id="tP0-OY-cSL" customClass="CreateAccountVC" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tP0-OY-cSL" customClass="CreateAccountViewController" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nay-ZF-fbB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-yi-P0y">
-                                <rect key="frame" x="331" y="40" width="28" height="28"/>
+                                <rect key="frame" x="343" y="40" width="16" height="22"/>
                                 <state key="normal" image="closeButton"/>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="9vL-Ij-Rhc" eventType="touchUpInside" id="KA3-WY-4tc"/>
@@ -450,7 +450,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="DVr-qY-VUY">
-                                <rect key="frame" x="62.5" y="148.5" width="250" height="131"/>
+                                <rect key="frame" x="62.5" y="142.5" width="250" height="131"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-uD-QVj">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
@@ -497,7 +497,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFJ-nc-UDc">
-                                <rect key="frame" x="137.5" y="302.5" width="100" height="130"/>
+                                <rect key="frame" x="137.5" y="296.5" width="100" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="vGx-zG-tvJ"/>
                                 </constraints>
@@ -511,20 +511,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0O-pC-Iof">
-                                <rect key="frame" x="50" y="98" width="275" height="20.5"/>
+                                <rect key="frame" x="50" y="92" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-kb-m5y" customClass="CircleImageView" customModule="SmackPractice" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="302.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="296.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1hg-6s-91t"/>
                                     <constraint firstAttribute="height" constant="100" id="f2t-g2-Afa"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVr-gs-NQB">
-                                <rect key="frame" x="107.5" y="436.5" width="160" height="28"/>
+                                <rect key="frame" x="107.5" y="430.5" width="160" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="Generate background color">
                                     <color key="titleColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -580,23 +580,23 @@
             </objects>
             <point key="canvasLocation" x="2376.8000000000002" y="-581.55922038980509"/>
         </scene>
-        <!--Avatar PickerVC-->
+        <!--Avatar Picker View Controller-->
         <scene sceneID="BjC-SO-rhG">
             <objects>
-                <viewController id="uIW-hn-PFI" customClass="AvatarPickerVC" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uIW-hn-PFI" customClass="AvatarPickerViewController" customModule="SmackPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fJl-XV-UiK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfA-f3-UHz">
-                                <rect key="frame" x="16" y="40" width="28" height="28"/>
+                                <rect key="frame" x="16" y="40" width="16" height="22"/>
                                 <state key="normal" image="smackBack"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="uIW-hn-PFI" eventType="touchUpInside" id="bBm-hu-mSF"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-In-qFw">
-                                <rect key="frame" x="107.5" y="40" width="160" height="29"/>
+                                <rect key="frame" x="107.5" y="37" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="bta-jf-yfF"/>
                                 </constraints>
@@ -610,7 +610,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Lw-DC-3VJ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r9C-Ti-NnZ">
                                     <size key="itemSize" width="100" height="100"/>

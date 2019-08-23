@@ -1,5 +1,5 @@
 //
-//  ChatVC.swift
+//  ChatViewController.swift
 //  SmackPractice
 //
 //  Created by Min Kyeong Tae on 19/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// * Smack 채팅 뷰 컨트롤러
-class ChatVC: UIViewController {
+class ChatViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var menuButton: UIButton!
@@ -26,7 +26,7 @@ class ChatVC: UIViewController {
         chatTableView.dataSource = self
 
         view.bindToKeyboard()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.handleTap))
         view.addGestureRecognizer(tap)
         menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
 
@@ -34,7 +34,7 @@ class ChatVC: UIViewController {
         view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
 
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
 
         if AuthService.instance.isLoggedIn {
@@ -110,7 +110,7 @@ class ChatVC: UIViewController {
     }
 }
 
-extension ChatVC: UITableViewDelegate, UITableViewDataSource {
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - UITableViewDataSource
 
     func numberOfSections(in _: UITableView) -> Int {

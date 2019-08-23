@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="SmackPractice" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="SmackPractice" customModuleProvider="target">
             <connections>
                 <outlet property="bgView" destination="JLT-Wt-UBn" id="cxT-0M-ivu"/>
                 <outlet property="profileImage" destination="XwQ-1M-EKl" id="tld-VH-wqs"/>

@@ -1,5 +1,5 @@
 //
-//  AvatarPickerVC.swift
+//  AvatarPickerViewController.swift
 //  SmackPractice
 //
 //  Created by MinKyeongTae on 30/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// * 아바타 이미지 선택 뷰 컨트롤러
-class AvatarPickerVC: UIViewController {
+class AvatarPickerViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet var collectionView: UICollectionView!
@@ -43,7 +43,7 @@ class AvatarPickerVC: UIViewController {
     }
 }
 
-extension AvatarPickerVC: UICollectionViewDataSource {
+extension AvatarPickerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: avatarCollectionCell, for: indexPath) as? AvatarCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(index: indexPath.item, type: avatarType)
@@ -59,7 +59,7 @@ extension AvatarPickerVC: UICollectionViewDataSource {
     }
 }
 
-extension AvatarPickerVC: UICollectionViewDelegate {
+extension AvatarPickerViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if avatarType == .dark {
             UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
@@ -70,7 +70,7 @@ extension AvatarPickerVC: UICollectionViewDelegate {
     }
 }
 
-extension AvatarPickerVC: UICollectionViewDelegateFlowLayout {
+extension AvatarPickerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         var numberOfColumns: CGFloat = 3 // 열의 갯 수 3
         if UIScreen.main.bounds.width > 320 { // 스크린 사이즈가 320을 초과하면,

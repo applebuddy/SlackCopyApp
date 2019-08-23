@@ -1,5 +1,5 @@
 //
-//  ProfileVC.swift
+//  ProfileViewController.swift
 //  SmackPractice
 //
 //  Created by MinKyeongTae on 08/08/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// * 현재 로그인한 유저 정보 뷰 컨트롤러
-class ProfileVC: UIViewController {
+class ProfileViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var profileImage: UIImageView!

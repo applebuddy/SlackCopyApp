@@ -1,5 +1,5 @@
 //
-//  CreateAccountVC.swift
+//  CreateAccountViewController.swift
 //  SmackPractice
 //
 //  Created by Min Kyeong Tae on 20/07/2019.
@@ -10,7 +10,7 @@ import Alamofire
 import UIKit
 
 /// * 회원가입 뷰 컨트롤러
-class CreateAccountVC: UIViewController {
+class CreateAccountViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var userNameTextField: UITextField!
