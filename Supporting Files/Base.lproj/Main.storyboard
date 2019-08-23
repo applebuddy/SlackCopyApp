@@ -144,11 +144,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHA-wu-Xde">
+                                <rect key="frame" x="8" y="607" width="121" height="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8bY-BU-RlH" firstAttribute="centerY" secondItem="r0D-fe-0EK" secondAttribute="centerY" id="05K-Zt-t9e"/>
                             <constraint firstItem="Gfh-PB-j2g" firstAttribute="bottom" secondItem="r0D-fe-0EK" secondAttribute="bottom" constant="8" id="1YC-fT-D3K"/>
+                            <constraint firstItem="r0D-fe-0EK" firstAttribute="top" secondItem="qHA-wu-Xde" secondAttribute="bottom" constant="6" id="2FV-Lt-DGu"/>
                             <constraint firstItem="4cp-CL-ege" firstAttribute="top" secondItem="Gfh-PB-j2g" secondAttribute="top" id="4kI-79-tOm"/>
                             <constraint firstItem="Gfh-PB-j2g" firstAttribute="trailing" secondItem="4cp-CL-ege" secondAttribute="trailing" id="A0F-lS-HrP"/>
                             <constraint firstItem="4cp-CL-ege" firstAttribute="leading" secondItem="Gfh-PB-j2g" secondAttribute="leading" id="Aa3-or-BtF"/>
@@ -158,6 +165,7 @@
                             <constraint firstItem="nZW-7W-DUO" firstAttribute="leading" secondItem="Gfh-PB-j2g" secondAttribute="leading" id="TgC-Tj-Ok9"/>
                             <constraint firstItem="Gfh-PB-j2g" firstAttribute="trailing" secondItem="8bY-BU-RlH" secondAttribute="trailing" constant="12" id="ZXU-Pn-eCQ"/>
                             <constraint firstItem="Gfh-PB-j2g" firstAttribute="trailing" secondItem="nZW-7W-DUO" secondAttribute="trailing" id="cAd-q4-yxJ"/>
+                            <constraint firstItem="qHA-wu-Xde" firstAttribute="leading" secondItem="Gfh-PB-j2g" secondAttribute="leading" constant="8" id="iay-zk-5qb"/>
                             <constraint firstItem="r0D-fe-0EK" firstAttribute="leading" secondItem="Gfh-PB-j2g" secondAttribute="leading" constant="8" id="qvS-Bs-a81"/>
                             <constraint firstItem="8bY-BU-RlH" firstAttribute="leading" secondItem="r0D-fe-0EK" secondAttribute="trailing" constant="10" id="x09-vr-EqM"/>
                         </constraints>
@@ -169,6 +177,7 @@
                         <outlet property="menuButton" destination="VXB-eV-uia" id="uqH-dd-pg8"/>
                         <outlet property="messageButton" destination="8bY-BU-RlH" id="eSh-Bu-IxK"/>
                         <outlet property="messageTextField" destination="r0D-fe-0EK" id="P46-wC-QsM"/>
+                        <outlet property="typingUserLabel" destination="qHA-wu-Xde" id="xL2-jU-jTb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-t4-BpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -432,7 +441,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-yi-P0y">
-                                <rect key="frame" x="343" y="40" width="16" height="22"/>
+                                <rect key="frame" x="331" y="40" width="28" height="28"/>
                                 <state key="normal" image="closeButton"/>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="9vL-Ij-Rhc" eventType="touchUpInside" id="KA3-WY-4tc"/>
@@ -454,7 +463,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="DVr-qY-VUY">
-                                <rect key="frame" x="62.5" y="142.5" width="250" height="131"/>
+                                <rect key="frame" x="62.5" y="148.5" width="250" height="131"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-uD-QVj">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
@@ -501,7 +510,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFJ-nc-UDc">
-                                <rect key="frame" x="137.5" y="296.5" width="100" height="130"/>
+                                <rect key="frame" x="137.5" y="302.5" width="100" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="vGx-zG-tvJ"/>
                                 </constraints>
@@ -515,20 +524,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0O-pC-Iof">
-                                <rect key="frame" x="50" y="92" width="275" height="20.5"/>
+                                <rect key="frame" x="50" y="98" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-kb-m5y" customClass="CircleImageView" customModule="SmackPractice" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="296.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="302.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1hg-6s-91t"/>
                                     <constraint firstAttribute="height" constant="100" id="f2t-g2-Afa"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVr-gs-NQB">
-                                <rect key="frame" x="107.5" y="430.5" width="160" height="28"/>
+                                <rect key="frame" x="107.5" y="436.5" width="160" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="Generate background color">
                                     <color key="titleColor" red="0.50427065950000005" green="0.53492085730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -538,7 +547,7 @@
                                     <action selector="pickBGColorPressed:" destination="tP0-OY-cSL" eventType="touchUpInside" id="qoh-0A-XBC"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u4z-2x-Lnj">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u4z-2x-Lnj">
                                 <rect key="frame" x="169" y="235" width="37" height="37"/>
                                 <color key="color" red="0.83042270029999998" green="0.33267337328767121" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>

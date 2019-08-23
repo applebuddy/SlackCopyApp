@@ -23,18 +23,9 @@ class MessageService {
 
             // 에러가 발생한다면??
             if response.result.error == nil {
+                guard let data = response.data else { return }
                 do {
-                    guard let data = response.data,
-                        let json = try? JSON(data: data).array,
-                        let jsonArray = json else { return }
-
-                    for item in jsonArray {
-                        let name = item["name"].stringValue
-                        let channelDescription = item["description"].stringValue
-                        let id = item["_id"].stringValue
-                        let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
-                        self.channels.append(channel)
-                    }
+                    self.channels = try JSONDecoder().decode([Channel].self, from: data)
 
                     // 채널이 적용되었음을 노티로 알려준다.
                     NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)

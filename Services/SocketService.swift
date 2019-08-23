@@ -45,13 +45,13 @@ class SocketService: NSObject {
         socket.on("channelCreated") { dataArray, _ in
             // 채널이름, 설명, 아이디를 받아 채널정보를 흭득 시도한다.
             guard let channelName = dataArray[0] as? String,
-                let channelDesc = dataArray[1] as? String,
+                let description = dataArray[1] as? String,
                 let channelId = dataArray[2] as? String else {
                 completion(false)
                 return
             }
 
-            let newChannel = Channel(channelTitle: channelName, channelDescription: channelDesc, id: channelId)
+            let newChannel = Channel(_id: channelId, name: channelName, description: description)
             MessageService.instance.channels.append(newChannel)
             completion(true)
         }
@@ -87,6 +87,13 @@ class SocketService: NSObject {
             } else {
                 completion(false)
             }
+        }
+    }
+
+    func getTypingUsers(_ completionHandler: @escaping (_ typingUsers: [String: String]) -> Void) {
+        socket.on("userTypingUpdate") { dataArray, _ in
+            guard let typingUsers = dataArray[0] as? [String: String] else { return }
+            completionHandler(typingUsers) // completionHandler로 딕셔너리를 넘겨준다.
         }
     }
 }

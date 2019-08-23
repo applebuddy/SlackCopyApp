@@ -17,6 +17,7 @@ class ChatViewController: UIViewController {
     @IBOutlet var channelNameLabel: UILabel!
     @IBOutlet var chatTableView: UITableView!
     @IBOutlet var messageButton: UIButton!
+    @IBOutlet var typingUserLabel: UILabel!
 
     var isTyping = false
 
@@ -51,6 +52,34 @@ class ChatViewController: UIViewController {
             }
         }
 
+        // 소켓으로부터 받아온 딕셔너리 데이터 ,typingUsers를 사용한다.
+        SocketService.instance.getTypingUsers { typingUsers in
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypers = 0
+            for (typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name, channel == channelId {
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+
+            // 최소 한 명 이상이 타이핑 중이고, 로그인상태라면,
+            if numberOfTypers > 0, AuthService.instance.isLoggedIn == true {
+                var verb = "is"
+                if numberOfTypers > 1 { // 다수가 타이핑 중이면 is -> are 로 동사 변경
+                    verb = "are"
+                }
+                self.typingUserLabel.text = "\(names) \(verb) typing a message"
+            } else { // 아무도 타이핑을 안하고나 로그인상태가 아니라면,
+                self.typingUserLabel.text = ""
+            }
+        }
+
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { _ in
                 NotificationCenter.default.post(name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
@@ -81,7 +110,7 @@ class ChatViewController: UIViewController {
     }
 
     func updateWithChannel() {
-        let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        let channelName = MessageService.instance.selectedChannel?.name ?? ""
         channelNameLabel.text = "#\(channelName)"
         getMessages()
     }
@@ -111,12 +140,15 @@ class ChatViewController: UIViewController {
     }
 
     @IBAction func messageFieldEditing(_: UITextField) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
         if messageTextField.text == "" {
             isTyping = false
             messageButton.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
         } else {
             if isTyping == false {
                 messageButton.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
             }
             isTyping = true
         }
@@ -131,6 +163,7 @@ class ChatViewController: UIViewController {
                 if success {
                     self.messageTextField.text = ""
                     self.messageTextField.resignFirstResponder()
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.id, channelId)
                 }
             }
         }
