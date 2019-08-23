@@ -80,6 +80,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageFieldEditing:" destination="Q19-DU-G54" eventType="editingChanged" id="FwG-Ng-udM"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nZW-7W-DUO">
                                 <rect key="frame" x="0.0" y="97" width="375" height="502"/>
@@ -164,6 +167,7 @@
                         <outlet property="channelNameLabel" destination="Ba6-oQ-O2l" id="v7Y-2g-Qef"/>
                         <outlet property="chatTableView" destination="nZW-7W-DUO" id="onG-jV-02A"/>
                         <outlet property="menuButton" destination="VXB-eV-uia" id="uqH-dd-pg8"/>
+                        <outlet property="messageButton" destination="8bY-BU-RlH" id="eSh-Bu-IxK"/>
                         <outlet property="messageTextField" destination="r0D-fe-0EK" id="P46-wC-QsM"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,9 @@ class ChatViewController: UIViewController {
     @IBOutlet var messageTextField: UITextField!
     @IBOutlet var channelNameLabel: UILabel!
     @IBOutlet var chatTableView: UITableView!
+    @IBOutlet var messageButton: UIButton!
+
+    var isTyping = false
 
     // MARK: - Life Cycle
 
@@ -24,6 +27,7 @@ class ChatViewController: UIViewController {
 
         chatTableView.delegate = self
         chatTableView.dataSource = self
+        messageButton.isHidden = true
 
         view.bindToKeyboard()
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.handleTap))
@@ -38,8 +42,12 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
 
         SocketService.instance.getChatMessage { success in
-            if success {
+            if success { // ChatMessage를 성공적으로 수신시 동작
                 self.chatTableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.chatTableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+                }
             }
         }
 
@@ -92,13 +100,26 @@ class ChatViewController: UIViewController {
         if AuthService.instance.isLoggedIn {
             onLoginGetMessages()
         } else {
-            // 유저 데이터가 없을 시 로그인 요청 문구 표시
+            // 유저 데이터가 없을 시 로그인 요청 문구 표시 및 채팅창 테이블 뷰 갱신
             channelNameLabel.text = "Please Log In"
+            chatTableView.reloadData()
         }
     }
 
     @objc func handleTap() {
         view.endEditing(true)
+    }
+
+    @IBAction func messageFieldEditing(_: UITextField) {
+        if messageTextField.text == "" {
+            isTyping = false
+            messageButton.isHidden = true
+        } else {
+            if isTyping == false {
+                messageButton.isHidden = false
+            }
+            isTyping = true
+        }
     }
 
     @IBAction func messageButtonPressed(_: UIButton) {
