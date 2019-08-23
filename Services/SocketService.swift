@@ -46,7 +46,10 @@ class SocketService: NSObject {
             // 채널이름, 설명, 아이디를 받아 채널정보를 흭득 시도한다.
             guard let channelName = dataArray[0] as? String,
                 let channelDesc = dataArray[1] as? String,
-                let channelId = dataArray[2] as? String else { return }
+                let channelId = dataArray[2] as? String else {
+                completion(false)
+                return
+            }
 
             let newChannel = Channel(channelTitle: channelName, channelDescription: channelDesc, id: channelId)
             MessageService.instance.channels.append(newChannel)

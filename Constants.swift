@@ -49,10 +49,12 @@ let TO_AVATAR_PICKER = "toAvatarPicker"
 // MARK: - Headers
 
 let HEADER = ["Content-Type": "application/json; charset=utf-8"]
-let BEARER_HEADER = [
-    "Authorization": "Bearer \(AuthService.instance.authToken)",
-    "Content-Type": "application/json; charset=urt-8",
-]
+var BEARER_HEADER: [String: String] {
+    return [
+        "Authorization": "Bearer \(AuthService.instance.authToken)",
+        "Content-type": "application/json; charset=utf-8",
+    ]
+}
 
 // MARK: - Cell Identifiers
 

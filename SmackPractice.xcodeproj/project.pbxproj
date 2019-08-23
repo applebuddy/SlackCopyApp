@@ -97,6 +97,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		072063FC230FF5A200F60B10 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				07A4D62622FC433600551268 /* ProfileVC.xib */,
+				0717A1B52302DC930059A12B /* AddChannelVC.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
 		35629F489B7E85855F96593B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,16 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				384616B422E0906900406365 /* AppDelegate.swift */,
-				38ED2BEF22E2E4A600520F41 /* Constants.swift */,
 				070C398322E9D4A0007EDB39 /* Services */,
-				384616B822E0906900406365 /* Main.storyboard */,
-				07A4D62622FC433600551268 /* ProfileVC.xib */,
-				0717A1B52302DC930059A12B /* AddChannelVC.xib */,
-				384616BB22E0906B00406365 /* Assets.xcassets */,
-				384616CB22E0E45400406365 /* Model */,
 				384616CD22E0E46400406365 /* Controller */,
 				384616CC22E0E45D00406365 /* View */,
 				384616C622E0A07D00406365 /* Supporting Files */,
+				384616CB22E0E45400406365 /* Model */,
+				384616BB22E0906B00406365 /* Assets.xcassets */,
 				384616B322E0906900406365 /* SmackPractice */,
 				384616B222E0906900406365 /* Products */,
 				35629F489B7E85855F96593B /* Pods */,
@@ -148,6 +153,7 @@
 		384616C622E0A07D00406365 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				384616B822E0906900406365 /* Main.storyboard */,
 				384616D322E1B7CC00406365 /* SWRevealViewController.h */,
 				384616D222E1B7CB00406365 /* SWRevealViewController.m */,
 				384616C722E0A19D00406365 /* SmackPractice-Bridging-Header.h */,
@@ -158,6 +164,7 @@
 		384616CB22E0E45400406365 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38ED2BEF22E2E4A600520F41 /* Constants.swift */,
 				07A4D62B22FC56AB00551268 /* Channel.swift */,
 				076024BC230C20FB00E3E0F8 /* Message.swift */,
 			);
@@ -167,6 +174,7 @@
 		384616CC22E0E45D00406365 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				072063FC230FF5A200F60B10 /* Xib */,
 				076024BE230C30D500E3E0F8 /* KeyboardBoundView.swift */,
 				38CEBD7E22E2C99E00C234FA /* GradientView.swift */,
 				07EB1C6622F064BC0079A18F /* AvatarCollectionViewCell.swift */,

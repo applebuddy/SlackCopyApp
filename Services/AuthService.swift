@@ -115,23 +115,12 @@ final class AuthService {
             "avatarColor": avatarColor,
         ]
 
-        // HEADER
-        let header = [
-            "Authorization": "Bearer \(AuthService.instance.authToken)",
-            "Content-Type": "application/json; charset=utf-8",
-        ]
-
         // REQUEST CREATE USER
-        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { response in
 
             if response.result.error == nil {
-                guard let data = response.data, let json = try? JSON(data: data) else { return }
-                let id = json["_id"].stringValue
-                let color = json["avatarColor"].stringValue
-                let avatarName = json["avatarName"].stringValue
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
-                UserDataService.instance.setUserData(id: id, avatarColor: color, avatarName: avatarName, email: email, name: name)
+                guard let data = response.data else { return }
+                self.setUserData(data: data)
                 completion(true)
             } else {
                 completion(false)
@@ -147,7 +136,7 @@ final class AuthService {
 
             if response.result.error == nil {
                 guard let data = response.data else { return }
-                self.setUserInfo(data: data)
+                self.setUserData(data: data)
                 completion(true)
             } else {
                 completion(false)
@@ -156,7 +145,7 @@ final class AuthService {
         }
     }
 
-    func setUserInfo(data: Data) {
+    func setUserData(data: Data) {
         do {
             let json = try JSON(data: data)
             let id = json["_id"].stringValue
