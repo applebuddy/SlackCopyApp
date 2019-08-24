@@ -91,10 +91,10 @@
 		070C398322E9D4A0007EDB39 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0717A1B82302E8A80059A12B /* SocketService.swift */,
 				070C398422E9D4B7007EDB39 /* AuthService.swift */,
 				07A4D62922FC567100551268 /* MessageService.swift */,
 				070DE40B22EC380200AF4E8E /* UserDataService.swift */,
+				0717A1B82302E8A80059A12B /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

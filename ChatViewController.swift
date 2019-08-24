@@ -42,8 +42,9 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
 
-        SocketService.instance.getChatMessage { success in
-            if success { // ChatMessage를 성공적으로 수신시 동작
+        SocketService.instance.getChatMessage { newMessage in
+            if newMessage.channelId == MessageService.instance.selectedChannel?.id, AuthService.instance.isLoggedIn {
+                MessageService.instance.messages.append(newMessage)
                 self.chatTableView.reloadData()
                 if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
@@ -51,6 +52,15 @@ class ChatViewController: UIViewController {
                 }
             }
         }
+//        SocketService.instance.getChatMessage { success in
+//            if success { // ChatMessage를 성공적으로 수신시 동작
+//                self.chatTableView.reloadData()
+//                if MessageService.instance.messages.count > 0 {
+//                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+//                    self.chatTableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+//                }
+//            }
+//        }
 
         // 소켓으로부터 받아온 딕셔너리 데이터 ,typingUsers를 사용한다.
         SocketService.instance.getTypingUsers { typingUsers in

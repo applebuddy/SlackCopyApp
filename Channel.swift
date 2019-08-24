@@ -10,6 +10,7 @@ import Foundation
 
 struct Channel: Decodable {
     // ✭ public private(set) var -> 읽기 전용 변수라는 의미
+    //   => private(set) var 로 사용해도 동일한 역할을 한다.
     public private(set) var name: String!
     public private(set) var description: String!
     public private(set) var id: String!

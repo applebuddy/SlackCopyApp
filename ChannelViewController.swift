@@ -31,9 +31,18 @@ class ChannelViewController: UIViewController {
                 self.channelTableView.reloadData()
             }
         }
+
         setupUserInfo()
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIFI_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
+
+        SocketService.instance.getChatMessage { newMessage in
+            if newMessage.channelId != MessageService.instance.selectedChannel?.id,
+                AuthService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessage.channelId)
+                self.channelTableView.reloadData()
+            }
+        }
     }
 
     // MARK: - Set Method
@@ -94,8 +103,19 @@ extension ChannelViewController: UITableViewDelegate {
         // 선택한 채널에 대한 데이터 처리한다.
         let channel = MessageService.instance.channels[indexPath.row]
         MessageService.instance.selectedChannel = channel
-        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
 
+        // 안 읽은 메세지가 존재한 다면
+        if MessageService.instance.unreadChannels.count > 0 {
+            MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter {
+                $0 != channel.id
+            }
+        }
+
+        let index = IndexPath(row: indexPath.row, section: 0)
+        channelTableView.reloadRows(at: [index], with: .none)
+        channelTableView.selectRow(at: index, animated: true, scrollPosition: .none)
+
+        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
         revealViewController()?.revealToggle(animated: true)
     }
 

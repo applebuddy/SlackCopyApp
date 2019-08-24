@@ -68,7 +68,7 @@ class SocketService: NSObject {
 
     // in socket...
     // * io.emit("messageCreated",  msg.messageBody, msg.userId, msg.channelId, msg.userName, msg.userAvatar, msg.userAvatarColor, msg.id, msg.timeStamp);
-    func getChatMessage(completion: @escaping CompletionHandler) {
+    func getChatMessage(completion: @escaping (_ newMessage: Message) -> Void) {
         socket.on("messageCreated") { dataArray, _ in
             // 채널 메세지 관련 데이터를 준비한다.
             guard let messageBody = dataArray[0] as? String,
@@ -79,14 +79,17 @@ class SocketService: NSObject {
                 let id = dataArray[6] as? String,
                 let timeStamp = dataArray[7] as? String else { return }
 
+            let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+
+            completion(newMessage)
             // 선택 된 채널의 아이디와 일치하고, 로그인 되어있다면, 메세지를 생성한다.
-            if channelId == MessageService.instance.selectedChannel?.id, AuthService.instance.isLoggedIn {
-                let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
-                MessageService.instance.messages.append(newMessage)
-                completion(true)
-            } else {
-                completion(false)
-            }
+//            if channelId == MessageService.instance.selectedChannel?.id, AuthService.instance.isLoggedIn {
+//
+//                MessageService.instance.messages.append(newMessage)
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
         }
     }
 

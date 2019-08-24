@@ -35,5 +35,13 @@ class ChannelTableViewCell: UITableViewCell {
     func configureCell(channel: Channel) {
         let title = channel.name ?? ""
         channelNameLabel.text = "#\(title)"
+        channelNameLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+
+        // 만약 안읽은 메세지 이면 추가적인 표시를 한다.
+        for id in MessageService.instance.unreadChannels {
+            if id == channel.id {
+                channelNameLabel.font = UIFont(name: "HelvelticaNeue-Bold", size: 22)
+            }
+        }
     }
 }
