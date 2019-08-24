@@ -13,10 +13,10 @@ struct Channel: Decodable {
     //   => private(set) var 로 사용해도 동일한 역할을 한다.
     public private(set) var name: String!
     public private(set) var description: String!
-    public private(set) var id: String!
+    public private(set) var _id: String!
 
     init(_id: String, name: String, description: String) {
-        id = _id
+        self._id = _id
         self.name = name
         self.description = description
     }

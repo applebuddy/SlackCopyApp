@@ -82,14 +82,6 @@ class SocketService: NSObject {
             let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
 
             completion(newMessage)
-            // 선택 된 채널의 아이디와 일치하고, 로그인 되어있다면, 메세지를 생성한다.
-//            if channelId == MessageService.instance.selectedChannel?.id, AuthService.instance.isLoggedIn {
-//
-//                MessageService.instance.messages.append(newMessage)
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
         }
     }
 

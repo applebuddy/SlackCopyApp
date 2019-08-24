@@ -24,6 +24,7 @@ class MessageService {
             // 에러가 발생한다면??
             if response.result.error == nil {
                 guard let data = response.data else { return }
+
                 do {
                     self.channels = try JSONDecoder().decode([Channel].self, from: data)
                     // 채널이 적용되었음을 노티로 알려준다.

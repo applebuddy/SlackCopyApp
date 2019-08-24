@@ -43,7 +43,7 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
 
         SocketService.instance.getChatMessage { newMessage in
-            if newMessage.channelId == MessageService.instance.selectedChannel?.id, AuthService.instance.isLoggedIn {
+            if newMessage.channelId == MessageService.instance.selectedChannel?._id, AuthService.instance.isLoggedIn {
                 MessageService.instance.messages.append(newMessage)
                 self.chatTableView.reloadData()
                 if MessageService.instance.messages.count > 0 {
@@ -64,7 +64,7 @@ class ChatViewController: UIViewController {
 
         // 소켓으로부터 받아온 딕셔너리 데이터 ,typingUsers를 사용한다.
         SocketService.instance.getTypingUsers { typingUsers in
-            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let channelId = MessageService.instance.selectedChannel?._id else { return }
             var names = ""
             var numberOfTypers = 0
             for (typingUser, channel) in typingUsers {
@@ -126,7 +126,7 @@ class ChatViewController: UIViewController {
     }
 
     func getMessages() {
-        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        guard let channelId = MessageService.instance.selectedChannel?._id else { return }
         MessageService.instance.findAllMessageForChannel(channelId: channelId) { success in
             if success {
                 self.chatTableView.reloadData()
@@ -150,7 +150,7 @@ class ChatViewController: UIViewController {
     }
 
     @IBAction func messageFieldEditing(_: UITextField) {
-        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        guard let channelId = MessageService.instance.selectedChannel?._id else { return }
         if messageTextField.text == "" {
             isTyping = false
             messageButton.isHidden = true
@@ -166,7 +166,7 @@ class ChatViewController: UIViewController {
 
     @IBAction func messageButtonPressed(_: UIButton) {
         if AuthService.instance.isLoggedIn {
-            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let channelId = MessageService.instance.selectedChannel?._id else { return }
             guard let message = messageTextField.text else { return }
 
             SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId) { success in

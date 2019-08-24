@@ -37,7 +37,7 @@ class ChannelViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
 
         SocketService.instance.getChatMessage { newMessage in
-            if newMessage.channelId != MessageService.instance.selectedChannel?.id,
+            if newMessage.channelId != MessageService.instance.selectedChannel?._id,
                 AuthService.instance.isLoggedIn {
                 MessageService.instance.unreadChannels.append(newMessage.channelId)
                 self.channelTableView.reloadData()
@@ -107,7 +107,7 @@ extension ChannelViewController: UITableViewDelegate {
         // 안 읽은 메세지가 존재한 다면
         if MessageService.instance.unreadChannels.count > 0 {
             MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter {
-                $0 != channel.id
+                $0 != channel._id
             }
         }
 

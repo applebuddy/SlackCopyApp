@@ -30,7 +30,7 @@ class MessageTableViewCell: UITableViewCell {
         // 2017-07-13T21:49:25.5902
         guard var isoDate = message.timeStamp else { return }
         let end = isoDate.index(isoDate.endIndex, offsetBy: -5)
-        isoDate = String(isoDate.suffix(from: end))
+        isoDate = String(isoDate[..<end])
 
         let isoFormatter = ISO8601DateFormatter()
         let chatDate = isoFormatter.date(from: isoDate.appending("Z"))
@@ -42,5 +42,9 @@ class MessageTableViewCell: UITableViewCell {
             let finalDate = newFormatter.string(from: finalDate)
             timeStampLabel.text = finalDate
         }
+//        let date = Date()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MMM d. h:mm a"
+//        timeStampLabel.text = dateFormatter.string(from: date)
     }
 }

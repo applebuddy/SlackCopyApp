@@ -39,7 +39,7 @@ class ChannelTableViewCell: UITableViewCell {
 
         // 만약 안읽은 메세지 이면 추가적인 표시를 한다.
         for id in MessageService.instance.unreadChannels {
-            if id == channel.id {
+            if id == channel._id {
                 channelNameLabel.font = UIFont(name: "HelvelticaNeue-Bold", size: 22)
             }
         }
